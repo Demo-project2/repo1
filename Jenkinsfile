@@ -3,15 +3,18 @@ properties([
     [$class: 'GithubProjectProperty',
     displayName: '',
     projectUrlStr: 'https://github.com/Demo-project2/repo1.git/'],
-    pipelineTriggers([githubPush()])])
+    pipelineTriggers([githubPush()])
+])
 
 pipeline {
     agent any 
+    
 
     stages {
         stage('Build') { 
             steps { 
                 sh 'pwd' 
+                sh 'java -version'
             }
         }
         stage('Test'){
